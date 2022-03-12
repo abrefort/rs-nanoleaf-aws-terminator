@@ -1,0 +1,27 @@
+[package]
+name = "rs-nanoleaf-aws-terminator"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+aws-config = "0.8"
+aws-sdk-dynamodb = "0.8"
+aws-sdk-ec2 = "0.8"
+aws-sdk-s3 = "0.8"
+aws-types = "0.8"
+bimap = "0.6"
+clap = { version = "3.1", features = ["derive", "env"] }
+colored = "2.0"
+env_logger = "0.9"
+eventsource-stream = "0.2"
+fastrand = "1.7"
+futures = "0.3"
+log = "0.4"
+log-panics = "2.0"
+reqwest = { version = "0.11", features = ["stream", ] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_repr = "0.1"
+tokio = { version = "1.17", features = ["full"] }
