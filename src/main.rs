@@ -1,5 +1,5 @@
 #![allow(clippy::too_many_arguments)]
-  
+
 use aws_config::meta::region::RegionProviderChain;
 use aws_sdk_ec2::model::Filter as EC2Filter;
 use aws_types::region::Region;
@@ -16,9 +16,9 @@ use serde_repr::Deserialize_repr;
 use std::fmt::Write;
 use std::net::Ipv4Addr;
 use std::sync::{Arc, Mutex};
+use tokio::sync::Semaphore;
 use tokio::time;
 use tokio::time::Interval;
-use tokio::sync::Semaphore;
 
 /// Simple program to terminate random AWS resources whack-a-mole style, a Nanoleaf Shapes controller is required.
 #[derive(Parser, Debug)]
@@ -589,7 +589,7 @@ async fn main() {
 
     let api_url = format!("http://{}:16021/api/v1/{}", ip, token);
 
-    // Semaphore 
+    // Semaphore
     let semaphore = Arc::new(Semaphore::new(1));
 
     // display and panels states
